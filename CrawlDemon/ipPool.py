@@ -41,7 +41,6 @@ if __name__=="__main__":
 		"Accept-Language": "zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7",
 		"Cache-Control": "max-age=0",
 		"Connection": "keep-alive",
-        # "Cookie": "_free_proxy_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWNlYjA5NWZhYWYwOTg1ZTkwMWNhNTBkYWNjMDg0ZjNkBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMWQ1T25wdkc5MlMyWDdqTFQ3SjIybGFOa05YSTF6b3YzRERuN21xSWVGZWc9BjsARg%3D%3D--8aa1907a2496cdab214564009c6f1287ffa16717; Hm_lvt_0cf76c77469e965d2957f0553e6ecf59=1536318216,1536318895,1537186043; Hm_lpvt_0cf76c77469e965d2957f0553e6ecf59=1537186043",
         "Host": "www.xicidaili.com",
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36",
     }
