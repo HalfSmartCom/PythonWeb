@@ -15,7 +15,7 @@ class ChatServer:
         self.socket.listen()
         # 图灵机器人，授权码
         self.key = key  # 存上你自己的key
-        print("正在监听 127.0.0.1 ：{}...".format(ip_port[1]))
+        print("正在监听 {} ：{}...".format(ip_port[0], ip_port[1]))
 
     def recive(self, conn):
         msg = conn.recv(4)
@@ -24,10 +24,10 @@ class ChatServer:
         return json.loads(json_data)
 
     def send_msg(self, conn, msg):
-        msg = msg.encode("utf-8")
-        msg_length = struct.pack("i", len(msg))
+        msg = msg.encode("utf-8")           # 将数据编码成byte 类型
+        msg_length = struct.pack("i", len(msg)) # 发送数据长度
         conn.send(msg_length)
-        conn.send(msg)
+        conn.send(msg)                         # 发送数据
 
     def tcplink(self, conn, addr):
         # 每次连接，开始聊天前，先欢迎下。
