@@ -64,5 +64,5 @@ class ChatServer:
 if __name__ == '__main__':
     with open("key") as f:
         key = f.read()
-    cs = ChatServer(key=key)
-    cs.main()
+    chat_server = ChatServer(key=key)
+    chat_server.main()

@@ -23,30 +23,25 @@ class ChatClient:
         self.socket.send(j_msg.encode("utf-8"))   # 发送数据
 
     def recv_msg(self):
-        info_length = self.socket.recv(4)              # 接收 server端的信息
-        data_length = struct.unpack("i", info_length)[0] # 转换为数据长度
-        print(data_length)
+        info_length = self.socket.recv(4)              # 接收 server端的信息, 先接受数据长度
+        data_length = struct.unpack("i", info_length)[0] # 解码，转换为数据长度
         data = self.socket.recv(data_length).decode("utf-8")            # 接收一个package
+        return ("【机器人小图】"+" "+time.strftime('%Y-%m-%d:%H:%M:%S',time.localtime(time.time())) + "\n"+ data)
 
-        if data:
-            print("\n【机器人小图】"+" "+time.strftime('%Y-%m-%d:%H:%M:%S',time.localtime(time.time())))
-            print(data)
-            return True
-        return False
 
     def main(self):
         data = self.socket.recv(1024).decode("utf-8")  # 接收问好信息
         print(data)
         while True:
-            msg=input("\n我：")
+            msg=input("我：")
             if msg == "exit":
                 print("聊天室已关闭")
                 break
             self.send_msg(msg)
-            self.recv_msg()
-
+            msg = self.recv_msg()
+            print(msg)
 
 
 if __name__ == '__main__':
-    cc = ChatClient(username="小明")
-    cc.main()
+    client = ChatClient(username="小明")
+    client.main()
